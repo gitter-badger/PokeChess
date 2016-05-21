@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="../chessboardjs-0.3.0/css/style.css">
+
+<div ng-controller="PuzzleController">	
+
+	<div id="newPuzzleBoard" style="width: 300px"></div>
+	
+	<div class="sidebar_container">
+		<input type="button" id="startBtn" value="Beginning Position" />
+		<input type="button" id="clearBtn" value="Clear" />
+		<select id='tactic'>
+		    <option value='fork'>fork</option>
+		    <option value='skewer'>skewer</option>
+		    <option value='discovered'>discovered</option>
+		    <option value='pin'>pin</option>
+		</select>
+		<select id="turn">
+			<option value="white">white to move</option>
+			<option value="black">black to move</option>
+		</select>
+		<input type="button" id="getPositionBtn" value="save starting position">: <input id="showStart">
+		<input type="button" id="getSolutionBtn" value="save solution">: <input id="showSolution">
+		<input type="button" id="savePuzzleBtn" value="Save Puzzle">
+	</div>
+</div>
+
+

@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" href="../chessboardjs-0.3.0/css/style.css">
+
+<div ng-controller="pinsController">
+
+<div id="board" style="width: 300px" display="inline-block"></div>
+
+<div class="sidebar_container" display="inline-block">
+
+		<select id="pinIndex">
+			<option value="{{$index}}" ng-repeat="puzzle in pins" >Pin # {{$index + 1}}</option>
+		</select>
+
+		<button id="checkAnswer">Submit Answer</button>
+
+		<!-- display:none, change when user submits answer -->
+		<div class="wrong hidden">Not Quite...Try Again!</div>
+
+		<div class="correct hidden">Correct!</div>
+
+</div>
+
+</div>

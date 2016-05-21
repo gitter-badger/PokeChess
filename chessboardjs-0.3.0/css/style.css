@@ -1,0 +1,36 @@
+#board, #newPuzzleBoard {
+
+	display: inline-block;
+	/*float: left;*/
+}
+
+.sidebar_container {
+	display: inline-block;
+	vertical-align: top;
+	width: 130px;
+	margin: 15px;
+	padding: 15px;
+}
+
+.wrong, .correct {
+	/*display: none;*/
+	border: solid 4px;
+	width: 140px;
+	height: 50px;
+	text-align: center;
+	vertical-align: -10px;
+}
+
+.hidden {
+	display: none;
+}
+
+/* find this answer on Stack later: CSS vertical-align: middle not working*/
+.correct {
+	background-color: green;
+	/*vertical-align: -50px;*/
+}
+.wrong {
+	background-color: red;
+
+}
