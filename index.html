@@ -33,6 +33,10 @@
   <link rel="stylesheet" type="text/css" href="/chessboardjs-0.3.0/css/chessboard-0.3.0.css">
   <script type="text/javascript" src="/chessboardjs-0.3.0/js/chessboard-0.3.0.js"></script>
 
+
+  <!-- puzzle.js -->
+  <script type="text/javascript" src="/puzzles.js"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -66,23 +70,18 @@
 
 
     <div class='jumbotron'>
-      <h3>Your Answer: {{userAns}} </h3>
-      <h3>Correct Answer: {{correctAns}}</h3>
-      <h3>Your Score: {{userScore}}</h3>
+      <h3 class="wrong hidden"> Wrong! </h3>
+      <h3 class="correct hidden"> Correct! </h3>
+
+      <h3> {{ result }} </h3>
+   
     </div>
 
-    <hr>
 
-    <nywton-chessboard 
-      board="boardC" 
-      data-nywton-chessboard-autoresize
-      data-position="'start'"
-      data-draggable="true">
-   </nywton-chessboard>
-
-  <div id="board33" style="width: 400px"></div>
-  <button id="getMove">Click me!</button>
-
+  <div id="board" style="width: 400px"></div>
+    <button id="checkMove">Submit</button>
   </div>
+
+
 </body>
 </html>
