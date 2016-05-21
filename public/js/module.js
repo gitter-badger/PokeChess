@@ -1,25 +1,55 @@
-// 'use strict';
+'use strict';
 
-// var app = angular.module('gameApp');
+var app = angular.module('gameApp');
 
-// app.config(function($stateProvider, $urlRouterProvider) {
-//
-//   $stateProvider
-//   .state('main',{
-//     url: '/main',
-//     templateUrl: 'index.html',
-//     controller: 'mainCtrl',
-//     // resolve: {
-//     //   user:
-//     //   function(Users, $stateParams) {
-//     //     //make call to get user from Users service
-//     //     //return Users.getUserById($stateParams.id)
-//     //     return ;
-//     //   }
-//     // }
-//   })
-//
-//
-//
-// $urlRouterProvider.otherwise('/');
-// })
+app.run(function(Auth) {
+  Auth.getProfile();
+});
+
+
+app.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+  .state('home', {
+    url: '/',
+    templateUrl: '/html/home.html',
+    controller: 'homeCtrl',
+    resolve: {
+      posts: function(Auth) {
+        return ;
+      }
+    }
+  })
+
+  .state('register', {
+    url: '/register',
+    templateUrl: '/html/authForm.html',
+    controller: 'authFormCtrl'
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: '/html/authForm.html',
+    controller: 'authFormCtrl'
+  })
+
+  .state('profile', {
+    url: '/profile',
+    templateUrl: '/html/profile.html',
+    controller: 'profileCtrl',
+    resolve: {
+      profile: function(Auth) {
+        return Auth.getProfile();
+      }
+    }
+  })
+
+
+  $urlRouterProvider.otherwise('/');
+})
+
+app.filter('titlecase', function() {
+  return function(input) {
+    return input[0].toUpperCase() + input.slice(1).toLowerCase();
+  }
+});

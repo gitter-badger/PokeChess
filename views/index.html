@@ -10,6 +10,7 @@
 
   <!-- angular -->
   <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
   <!-- Bootstrap scripts and jquery script (used by bootstrap) -->
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -20,9 +21,10 @@
   <script src="/bower_components/socket.io-client/socket.io.js"></script>
   <script src="/bower_components/angular-socket-io/socket.js"></script>
 
-  <!-- controller and service -->
+  <!-- controller and services -->
   <script src="/js/controllers.js"></script>
-  <script src="/js/service.js"></script>
+  <script src="/js/services.js"></script>
+  <script src="/js/module.js"></script>
 
   <!-- angular-chessboard -->
   <link rel="stylesheet" href="/bower_components/chessboard.js/src/css/chessboard.css"/>
@@ -37,13 +39,57 @@
 
 </head>
 <body ng-app="gameApp" ng-controller="mainCtrl">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Welcome {{currentUser.username}}!</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+        <li class="active"><a ui-sref='home'>Home</a></li>
+
+          <li><a ng-hide="currentUser" ui-sref='login'>Login</a></li>
+          <li><a ng-hide="currentUser" ui-sref='register'>Register</a></li>
+
+          <li><a ng-show="currentUser" ui-sref='profile'>Profile</a></li>
+          <li><a ng-show="currentUser" ng-click='logout()'>Logout</a></li>
+
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar-brand" href="#">Gotta Catch Them All!</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <hr>
+  <hr>
+
+
   <div class="container">
 
-    <h1>Math Duel!</h1>
+    <ui-view></ui-view>
+
+
+    <h1>Chess Duel!</h1>
     <hr>
 
 
-    <div class="panel panel-success">
+    <div class="panel panel-warning">
       <div class="panel-heading">
         <h2 class="panel-title">Players logged on: {{player}}</h2>
         <h3>{{waitText}}</h3>
@@ -73,16 +119,16 @@
 
     <hr>
 
-    <nywton-chessboard 
-      board="boardC" 
-      data-nywton-chessboard-autoresize
-      data-position="'start'"
-      data-draggable="true">
-   </nywton-chessboard>
+    <nywton-chessboard
+    board="boardC"
+    data-nywton-chessboard-autoresize
+    data-position="'start'"
+    data-draggable="true">
+  </nywton-chessboard>
 
   <div id="board33" style="width: 400px"></div>
   <button id="getMove">Click me!</button>
 
-  </div>
+</div>
 </body>
 </html>
