@@ -2,33 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Turn Based Game!</title>
+  <title>pokéChess</title>
 
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/bower_components/bootswatch-dist/css/bootstrap.min.css">
+  <!--   <link rel="stylesheet" href="/bower_components/bootswatch-dist/css/bootstrap.min.css"> -->
   <link rel="styleseet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="css/style.css">
+  <!--Google Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet' type='text/css'>
   <!-- angular -->
   <script src="/bower_components/angular/angular.js"></script>
-
   <!-- Bootstrap scripts and jquery script (used by bootstrap) -->
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/bower_components/bootswatch-dist/js/bootstrap.min.js"></script>
+  <!--   <script src="/bower_components/bootswatch-dist/js/bootstrap.min.js"></script> -->
   <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
   <!-- socket io client and angular-socket-io-->
   <script src="/bower_components/socket.io-client/socket.io.js"></script>
   <script src="/bower_components/angular-socket-io/socket.js"></script>
-
   <!-- controller and service -->
   <script src="/js/controllers.js"></script>
   <script src="/js/service.js"></script>
-
   <!-- angular-chessboard -->
   <link rel="stylesheet" href="/bower_components/chessboard.js/src/css/chessboard.css"/>
   <script src="/bower_components/chessboard.js/dist/js/chessboard.js"></script>
   <script src="/bower_components/angular-chessboard/dist/angular-chessboard.min.js"></script>
-
   <!-- chessboardjs-0.3.0 -->
   <link rel="stylesheet" type="text/css" href="/chessboardjs-0.3.0/css/chessboard-0.3.0.css">
   <script type="text/javascript" src="/chessboardjs-0.3.0/js/chessboard-0.3.0.js"></script>
@@ -37,10 +34,31 @@
 
 </head>
 <body ng-app="gameApp" ng-controller="mainCtrl">
+
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header nav-text">
+        <img class="pikachu" alt="logo" src="pikachu.png">
+        pokéChess
+      </div>
+<!--     <div>
+        <ul class="nav navbar-nav">
+        <li><a href="#">My Pokémon</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div> -->
+  </nav>
+
+
+
+
+
   <div class="container">
 
-    <h1>Math Duel!</h1>
-    <hr>
+    <h1 class="text-center">Catch 'Em All!</h1>
+    <p class=" instructions text-center">Challenge an oponent. The player to solve the most checkmate in one move puzzles in 20 seconds catches a pokémon. Can you catch 'em all?</p>
+
 
 
     <div class="panel panel-success">
@@ -56,33 +74,10 @@
 
 
       </div>
-      <div class="panel-body">
-        <form ng-submit='checkAnswer(userAns)'>
-          Your Answer: <input ng-model='userAns' type="text">
-          <button type="submit" class='btn btn-success'>Submit</button>
-        </form>
-      </div>
+    
+        <div id="board33" style="width: 600px"></div>
+        <button class="btn-info" id="getMove">Submit</button>
+
     </div>
-
-
-    <div class='jumbotron'>
-      <h3>Your Answer: {{userAns}} </h3>
-      <h3>Correct Answer: {{correctAns}}</h3>
-      <h3>Your Score: {{userScore}}</h3>
-    </div>
-
-    <hr>
-
-    <nywton-chessboard 
-      board="boardC" 
-      data-nywton-chessboard-autoresize
-      data-position="'start'"
-      data-draggable="true">
-   </nywton-chessboard>
-
-  <div id="board33" style="width: 400px"></div>
-  <button id="getMove">Click me!</button>
-
-  </div>
-</body>
-</html>
+  </body>
+  </html>

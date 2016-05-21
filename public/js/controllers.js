@@ -18,7 +18,7 @@ app.controller('mainCtrl', function($scope, Service, mySocket, $timeout) {
     var board33 = ChessBoard("board33", { 
       draggable: true,
       dropOffBoard: "snapback",
-      position: "8/8/8/4k3/8/8/8/KQ6" 
+      position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" 
     });
 
     $("#getMove").click(function () {
