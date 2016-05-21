@@ -11,28 +11,71 @@ app.factory('mySocket', function (socketFactory) {
   return socketFactory();
 })
 
-app.controller('mainCtrl', function($scope, Service, mySocket, $timeout) {
+app.controller('mainCtrl', function($scope, mySocket, $timeout) {
 
   $(document).ready(function () {
-
-    var board33 = ChessBoard("board33", { 
+    
+    var puzzle = getFen();
+    
+    var board = ChessBoard("board", { 
       draggable: true,
       dropOffBoard: "snapback",
-      position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" 
+      position: puzzle.fen1 
     });
 
-    $("#getMove").click(function () {
-      console.log(board33.fen());
-    }); 
+    $scope.result;
 
-  });
+    //check users answer and update users score
+    $("#checkMove").click(function (e) {
 
-  console.log('mainCtrl!');
+      e.preventDefault();
+
+      var userAnswer = board.fen();
+
+      if(userAnswer == puzzle.fen2){
+
+        $(".correct").removeClass("hidden");
+        $(".wrong").addClass("hidden");
+        $scope.userScore += 10;
+        $scope.result = "Correct!";
+        console.log("Correct!");
+
+      } 
+
+      else {
+        $(".correct").addClass("hidden");
+        $(".wrong").removeClass("hidden");
+        console.log("Wrong!");
+      }
+
+      updateBoard();
+    });
+
+
+    //change puzzle
+    $("#nextPuzzle").click(function (){
+        updateBoard();
+    });
+
+    function updateBoard(){
+      console.log("updateboard");
+      puzzle = getFen();
+
+      board = ChessBoard("board", { 
+        draggable: true,
+        dropOffBoard: "snapback",
+        position: puzzle.fen1 
+      });
+     
+    };
+
+
+  });//closes document ready
+
+
+
+
   $scope.userScore=score;
-
-  $scope.question = Service.getMathQuestion();
-
-
 
   $scope.$on('socket:error',  function(ev, data) {
     console.log('socket error:', data);
@@ -41,53 +84,37 @@ app.controller('mainCtrl', function($scope, Service, mySocket, $timeout) {
   mySocket.on('playerNum',  function(playerNum) {
     console.log('playerNum: ', playerNum);
     $scope.player = playerNum;
-    $scope.waitText = 'Waiting for opponent'
+    $scope.waitText = 'Waiting for opponent';
   });
 
   mySocket.on('gameStart', () => {
     if($scope.player) {
-      $scope.waitText= 'Press Start to Begin!'
-ee    }
-  })
+      $scope.waitText= 'Press Start to Begin!';
+    }
+  });
 
   mySocket.on('winner', (winner) => {
     if(winner === 'draw') {
-      $scope.waitText = 'You tied!';
+      $scope.waitText = 'You tied! No Pokemon caught';
     } else if(winner === score) {
-      $scope.waitText = 'You win!';
+      $scope.waitText = 'You caught a Pokemon!';
     } else {
-      $scope.waitText = 'You lose!';
+      $scope.waitText = 'You lost! Missed that Pokemon!';
     }
 
-  })
+  });
 
-$scope.startTimer = () => {
-  console.log('timer!');
-  $scope.waitText = 'Your timer has started! You have 20 seconds!'
-$timeout(function () {
-  mySocket.emit('timeout', score);
-  $scope.waitText='Your time is up! Waiting for oponent to finish.'
-}, 20000);
-}
-
-  $scope.checkAnswer = function(answer) {
-
-    $scope.correctAns = $scope.question.answer;
-
-    if(answer == $scope.question.answer) {
-      console.log("correct");
-      score += 10;
-      $scope.userScore = score;
-    }
-    //update question
-    $scope.question = Service.getMathQuestion();
+  $scope.startTimer = () => {
+    console.log('timer!');
+    
+    $scope.waitText = 'Your timer has started! You have 20 seconds!'
+    
+    $timeout(function () {
+    mySocket.emit('timeout', score);
+    
+    $scope.waitText='Your time is up! Waiting for oponent to finish.'
+  }, 20000);
   }
-
-
-
-
-
-
 
 
 });
