@@ -104,6 +104,7 @@ body {
     text-align: center;
 }
 body {
+  font-family: Kalam;
 	background-color: #3368B1;
 	background-image: url("http://i.imgur.com/n0WLCWr.png");
 	background-size: cover;
@@ -120,3 +121,10 @@ body {
 /*.navbar-brand>img {
     display: block;
 }*/
+
+h3 {
+	font-family: Kalam;
+	color: #ff3333;
+	font-size: 50px;
+	font-weight: bold;
+}
