@@ -14,13 +14,13 @@ app.factory('mySocket', function (socketFactory) {
 app.controller('mainCtrl', function($scope, mySocket, $timeout) {
 
   $(document).ready(function () {
-    
+
     var puzzle = getFen();
-    
-    var board = ChessBoard("board", { 
+
+    var board = ChessBoard("board", {
       draggable: true,
       dropOffBoard: "snapback",
-      position: puzzle.fen1 
+      position: puzzle.fen1
     });
 
     $scope.result;
@@ -38,7 +38,7 @@ app.controller('mainCtrl', function($scope, mySocket, $timeout) {
         $scope.result = "Correct!";
         console.log("Correct!");
 
-      } 
+      }
 
       else {
         $(".correct").addClass("hidden");
@@ -59,18 +59,16 @@ app.controller('mainCtrl', function($scope, mySocket, $timeout) {
       console.log("updateboard");
       puzzle = getFen();
 
-      board = ChessBoard("board", { 
+      board = ChessBoard("board", {
         draggable: true,
         dropOffBoard: "snapback",
-        position: puzzle.fen1 
+        position: puzzle.fen1
       });
-     
+
     };
 
 
   });//closes document ready
-
-
 
 
   $scope.userScore=score;
@@ -104,12 +102,12 @@ app.controller('mainCtrl', function($scope, mySocket, $timeout) {
 
   $scope.startTimer = () => {
     console.log('timer!');
-    
+
     $scope.waitText = 'Your timer has started! You have 20 seconds!'
-    
+
     $timeout(function () {
     mySocket.emit('timeout', score);
-    
+
     $scope.waitText='Your time is up! Waiting for oponent to finish.'
   }, 20000);
   }
