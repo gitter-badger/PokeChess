@@ -1,0 +1,68 @@
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header nav-text">
+        <img class="pikachu" alt="logo" src="pikachu.png">
+        pokéChess
+      </div>
+<!--     <div>
+        <ul class="nav navbar-nav">
+        <li><a href="#">My Pokémon</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div> -->
+  </nav>
+
+
+
+
+
+  <div class="container">
+
+    <h1 class="text-center">Catch 'Em All!</h1>
+    <p class=" instructions text-center">Challenge an oponent. The player to solve the most checkmate in one move puzzles in 20 seconds catches a pokémon. Can you catch 'em all?</p>
+
+
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">Players logged on: {{player}}</h2>
+        <h3>{{waitText}}</h3>
+
+        <div ng-if='player==2'>
+          <button class='btn btn-warning btn-block' ng-click='startTimer(); start=true'>Begin Timer</button>
+          <hr>
+          <h1 ng-if='start' class="panel-title text-center">{{question.num1}} * {{question.num2}} = __</h1>
+        </div>
+
+
+      </div>
+
+      <div class="panel-body">
+        <!--board-->
+        <div class="col-xs-6">
+        <div id="board" style="width: 475px"></div>
+        </div>
+
+        <div class="col-xs-3">
+        <img class="clock-image" alt="clock" src="clock.png">
+        </div>
+
+        <!--whitespace-->
+        <div class="col-xs-3">
+          <span id="whiteSpace">Pieces Key
+            <table>
+              <th>
+              </th>
+            </table>
+          </span>
+        </div>
+
+      </div>
+
+      <button class="btn-info" id="checkMove">Submit</button>
+
+    </div>
+
+
+  </body>
+  </html>

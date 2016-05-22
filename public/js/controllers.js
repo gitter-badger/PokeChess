@@ -26,9 +26,7 @@ app.controller('mainCtrl', function($scope, mySocket, $timeout) {
     $scope.result;
 
     //check users answer and update users score
-    $("#checkMove").click(function (e) {
-
-      e.preventDefault();
+    $("#checkMove").click(function () {
 
       var userAnswer = board.fen();
 
