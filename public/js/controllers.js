@@ -198,10 +198,6 @@ app.controller('logoutCtrl', function() {
   console.log('logoutCtrl!');
 })
 
-app.controller('chessCtrl', function() {
-  console.log('chessCtrl!');
-})
-
 
 app.factory('mySocket', function (socketFactory) {
   console.log('factory!');
