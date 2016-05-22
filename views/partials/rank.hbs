@@ -1,0 +1,52 @@
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-info ">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-search"></i> Search a user</h3>
+            </div>
+            <form id="userSearchForm" role="form">
+                <div class="panel-body">
+                  <p> Click to see who's who on PokeChess </p>
+                </div>
+                <div class="panel-footer">
+                    <p><button id="searchUserFormSubmit" type="button" class="btn btn-default center-block">Submit</button></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div>
+        <table id="foundUsersTable" class="table table-bordered table-striped table-condensed table-hover">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Captured Pokemon</th>
+                <th>Highest Pokemon</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+              {{#each users}}
+            <tr>
+                <td colspan="5">
+                    <div class="text-center">Name: {{name}}</div>
+                </td>
+                <td colspan="5">
+                    <div class="text-center">Email: {{email}}</div>
+                </td>
+            </tr>
+            {{/each}}
+            </tfoot>
+        </table>
+    </div>
+</div>
