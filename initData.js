@@ -16,10 +16,10 @@ var Game = mongoose.model('Game');
 var u = new User({ name: 'Foo', email: 'foo@bar.org', lastConnection: 'Sun Nov 02 2014 11:16:56 GMT+0100 (CET)', password: '3858f62230ac3c915f300c664312c63f' });
 u.save(function(err) {});
 
-var q1 = new Quote({author: 'Garry Kasparov', content: 'The highest art of the chess player lies in not allowing your opponent to show you what he can do.'});
-var q2 = new Quote({author: 'Boris Spassky', content: 'The best indicator of a chess player form is his ability to sense the climax of the game.'});
-var q3 = new Quote({author: 'V. Anand', content: 'Nowadays, when you are not a grandmaster at 14, you can forget about it.'});
-var q4 = new Quote({author: 'Magnus Carlsen', content: 'Some people think that if their opponent plays a beautiful game, it’s OK to lose. I don’t. You have to be merciless.'});
+var q1 = new Quote({author: 'Garry Kasparov', content: 'The highest art of the chess player lies in not allowing your opponent to show you what he can do.', pic: 'Ash.jpg'});
+var q2 = new Quote({author: 'Boris Spassky', content: 'The best indicator of a chess player form is his ability to sense the climax of the game.', pic: 'elm.jpg'});
+var q3 = new Quote({author: 'V. Anand', content: 'Nowadays, when you are not a grandmaster at 14, you can forget about it.', pic: 'Ivy.jpg'});
+var q4 = new Quote({author: 'Magnus Carlsen', content: 'Some people think that if their opponent plays a beautiful game, it’s OK to lose. I don’t. You have to be merciless.', pic: 'oak.jpeg'});
 
 q1.save(function(err) {});
 q2.save(function(err) {});
@@ -104,5 +104,3 @@ client.indices.create({
         });
     });
 });
-
-
