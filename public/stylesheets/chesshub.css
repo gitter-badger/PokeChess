@@ -121,7 +121,16 @@ body {
 /*.navbar-brand>img {
     display: block;
 }*/
+#navbar {
+    text-align: center;
+}
 
+#navbar > ul {
+    display: inline-block;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+}
 h3 {
 	font-family: Kalam;
 	color: #ff3333;
