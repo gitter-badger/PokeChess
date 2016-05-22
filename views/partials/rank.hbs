@@ -12,7 +12,7 @@
             </div>
             <form id="userSearchForm" role="form">
                 <div class="panel-body">
-                  <p> Click to see who's who on PokeChess </p>
+                  <p> Do some action here! </p>
                 </div>
                 <div class="panel-footer">
                     <p><button id="searchUserFormSubmit" type="button" class="btn btn-default center-block">Submit</button></p>
@@ -26,26 +26,23 @@
     <div>
         <table id="foundUsersTable" class="table table-bordered table-striped table-condensed table-hover">
             <thead>
-            <tr>
-                <th>User</th>
-                <th>Captured Pokemon</th>
-                <th>Highest Pokemon</th>
-            </tr>
-            </thead>
-            <tbody>
 
+            <tbody>
+              {{#each users}}
+              <tr>
+                <td colspan="5">
+                  <div class="text-center">Name: {{name}}</div>
+                </td>
+                <td colspan="5">
+                  <div class="text-center">Email: {{email}}</div>
+                </td>
+                <td colspan="5">
+                  <div class="text-center"><button type="button" class"btn btn-success btn-xs"> View Pokemon</button></div>
+                </td>
+              </tr>
+              {{/each}}
             </tbody>
             <tfoot>
-              {{#each users}}
-            <tr>
-                <td colspan="5">
-                    <div class="text-center">Name: {{name}}</div>
-                </td>
-                <td colspan="5">
-                    <div class="text-center">Email: {{email}}</div>
-                </td>
-            </tr>
-            {{/each}}
             </tfoot>
         </table>
     </div>
