@@ -19,7 +19,12 @@
 
 <div class="container">
     <div class="header">
-        <ul class="nav nav-pills pull-right">
+        <ul class="nav nav-pills">
+          <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Brand" width="64" hight="64 "src="pikachu.png">
+          </a>
+        </div>
             <li class="{{#if isHomePage}} active {{/if}}"><a href="/" title="Go to home page"><i class="fa fa-home"></i> Home</a></li>
             <li class="{{#if isPlayPage}} active {{/if}}"><a href="/play" title="Create a new game"><i class="fa fa-gamepad"></i> Play</a></li>
             <li class="{{#if isTvPage}} active {{/if}}"><a href="/tv" title="Watch live games"><i class="fa fa-puzzle-piece"></i> Puzzles</a></li>
@@ -32,8 +37,8 @@
             {{/if}}
 
         </ul>
-        <h5><img class="pikachu img-responsive" alt="logo" src="pikachu.png"> PokeChess</h5>
     </div>
+
 
     <div class="content">
         {{{body}}}
