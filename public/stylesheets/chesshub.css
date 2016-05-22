@@ -20,7 +20,7 @@ body {
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
     padding-bottom: 19px;
-    margin-top: 0;
+    margin-top: 10px;
     margin-bottom: 0;
     line-height: 40px;
     color: #3C763D;;
@@ -157,6 +157,7 @@ color: #3C763D;
 background-color: #DFF0D8;
 }
 .panel {
+  margin-top: 50px;
   color: #3C763D;
   background-color: #DFF0D8;
 }
@@ -171,7 +172,6 @@ background-color: #DFF0D8;
 
 .container {
 /*	background-color: #404040;*/
-width: 100%;
 }
 /*body {
     overflow-y: auto;
@@ -193,9 +193,9 @@ width: 100%;
     text-align: center;
 }
 #nav {
-    background: #292929;
-    background: -moz-linear-gradient(top, black, #3c3c3c 1px, #292929 25px);
-    background: -webkit-gradient(linear, left top, left 25, from(black), color-stop(4%, #3c3c3c), to(#292929));
+    background: crimson;
+    background: -moz-linear-gradient(top, crimson, red 1px, #ff3333 25px);
+    background: -webkit-gradient(linear, left top, left 25, from(purple), color-stop(24%, crimson), to(yellow));
     position:absolute;
     left:0%;
     top:0%;
@@ -216,7 +216,7 @@ width: 100%;
 #nav li a {
     padding: 1em 2em;
     text-decoration: none;
-    color: #5FFB17;
+    color: black;
     border-right: 1px solid #3c3c3c;
     border-left: 1px solid #292929;
     border-bottom: 1px solid #232323;
