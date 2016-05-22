@@ -140,3 +140,7 @@ h3 {
 .piece-key-img {
 	width: 40px;
 }
+.clock {
+  background-image: url("http://s32.postimg.org/nicyvbjw5/clock.png");
+  background-size: cover;
+}
