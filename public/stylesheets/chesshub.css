@@ -158,6 +158,7 @@ background-color: #DFF0D8;
 }
 .panel {
   margin-top: 50px;
+  float: center;
   color: #3C763D;
   background-color: #DFF0D8;
 }
@@ -195,7 +196,7 @@ background-color: #DFF0D8;
 #nav {
     background: crimson;
     background: -moz-linear-gradient(top, crimson, red 1px, #ff3333 25px);
-    background: -webkit-gradient(linear, left top, left 25, from(purple), color-stop(24%, crimson), to(yellow));
+    background: -webkit-gradient(linear, left top, left 25, from(crimson), color-stop(24%, crimson), to(#F6DD47));
     position:absolute;
     left:0%;
     top:0%;
@@ -225,5 +226,5 @@ background-color: #DFF0D8;
 #nav li a:hover {
     background: #ff3333;
     background: -moz-linear-gradient(top, #ff3333, #ff0000);
-    background: -webkit-gradient(linear, left top, left bottom, from(#11032e), to(#2a0d65));
+    background: -webkit-gradient(linear, left top, left bottom, from(#F6DD47), to(#crimson));
 }
