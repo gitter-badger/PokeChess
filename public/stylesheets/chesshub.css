@@ -23,7 +23,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
-    color: #F6DD47;
+    color: #3C763D;;
 }
 a {
   color: #F6DD47;
@@ -118,7 +118,6 @@ body {
 	background-color: #3368B1;
 	background-image: url("http://i.imgur.com/n0WLCWr.png");
 	background-size: cover;
-  color: #F6DD47
 }
 
 .navbar-default {
@@ -154,7 +153,12 @@ h1 {
 }
 
 .panel-heading {
-color: ;
+color: #3C763D;
+background-color: #DFF0D8;
+}
+.panel {
+  color: #3C763D;
+  background-color: #DFF0D8;
 }
 
 .btn-info {
@@ -167,13 +171,14 @@ color: ;
 
 .container {
 /*	background-color: #404040;*/
+width: 100%;
 }
-body {
+/*body {
     overflow-y: auto;
     display: flex;
     align-items: center;
         justify-content: center;
-}
+}*/
 
 #gameBoard {
     width: 400px;
@@ -181,4 +186,44 @@ body {
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     color: #ff3333;
     background-color: #F6DD47;
+}
+#navbarwidth {
+    width:100%;
+    position:absolute;
+    text-align: center;
+}
+#nav {
+    background: #292929;
+    background: -moz-linear-gradient(top, black, #3c3c3c 1px, #292929 25px);
+    background: -webkit-gradient(linear, left top, left 25, from(black), color-stop(4%, #3c3c3c), to(#292929));
+    position:absolute;
+    left:0%;
+    top:0%;
+    margin: 0px;
+    padding: 0;
+    border: 1px yellow;
+    border-bottom: none;
+    width:100%;
+}
+#nav li a, #nav li {
+    text-align: center;
+    display: inline-block;
+    min-width: 70px;
+}
+#nav li {
+    list-style: none;
+}
+#nav li a {
+    padding: 1em 2em;
+    text-decoration: none;
+    color: #5FFB17;
+    border-right: 1px solid #3c3c3c;
+    border-left: 1px solid #292929;
+    border-bottom: 1px solid #232323;
+    border-top: 1px solid #545454;
+}
+#nav li a:hover {
+    background: #ff3333;
+    background: -moz-linear-gradient(top, #ff3333, #ff0000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#11032e), to(#2a0d65));
 }
