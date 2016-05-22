@@ -1,9 +1,95 @@
 'use strict'
 
-var app = angular.module('gameApp', ['btford.socket-io', 'nywton.chessboard'])
+var app = angular.module('gameApp', ['btford.socket-io', 'nywton.chessboard', 'ui.router'])
 
 var player;
 var score = 0;
+
+
+app.controller('profileCtrl', function($scope, Auth, $state) {
+  console.log('profileCtrl!');
+  console.log(Auth.currentUser);
+  console.log('$scope.currentUser:', $scope.currentUser);
+
+
+  $scope.createPost = (post) => {
+
+
+
+    console.log('$scope.currentUser:', $scope.currentUser);
+  }
+
+
+})
+
+
+app.controller('homeCtrl', function($scope, Auth) {
+  console.log('homeCtrl!');
+
+
+
+})
+
+
+app.controller('authFormCtrl', function($scope, $state, Auth) {
+  console.log('authFormCtrl!');
+
+  $scope.currentState = $state.current.name;
+
+  $scope.submitForm = () => {
+    if($scope.currentState === 'register') {
+
+      // register user
+
+      if($scope.user.password !== $scope.user.password2) {
+
+        $scope.user.password = '';
+        $scope.user.password2 = '';
+
+        alert('Passwords must match.')
+      } else {
+        Auth.register($scope.user)
+        .then(res => {
+          return Auth.login($scope.user);
+        })
+        .then(res => {
+          $state.go('chess');
+        })
+        .catch(res => {
+          alert(`registration error: ${res.data.error}`);
+        });
+      }
+    } else {
+      // login user
+      console.log($scope.user)
+      Auth.login($scope.user)
+      .then(res => {
+        $state.go('chess');
+      })
+      .catch(res => {
+        alert(`login error: ${res.data.error}`);
+      })
+
+    }
+  };
+});
+
+
+app.controller('profileCtrl', function() {
+  console.log('profileCtrl!');
+})
+
+app.controller('loginCtrl', function() {
+  console.log('loginCtrl!');
+})
+
+app.controller('logoutCtrl', function() {
+  console.log('logoutCtrl!');
+})
+
+app.controller('chessCtrl', function() {
+  console.log('chessCtrl!');
+})
 
 
 app.factory('mySocket', function (socketFactory) {
@@ -11,7 +97,33 @@ app.factory('mySocket', function (socketFactory) {
   return socketFactory();
 })
 
-app.controller('mainCtrl', function($scope, mySocket, $timeout) {
+
+app.controller('mainCtrl', function($scope, mySocket, $timeout, Auth, $state) {
+
+  $scope.$watch(function() {
+    return Auth.currentUser;
+  }, function(newVal, oldVal) {
+    console.log('oldVal: ', oldVal);
+    console.log('newVal: ', newVal );
+    $scope.currentUser = newVal;
+  })
+
+
+  // console.log('mainCtrl');
+  // Auth.getProfile()
+  //   .then(res => {
+  //     $scope.currentUser = res.data;
+  //   })
+  //   .catch(res => {
+  //     $scope.currentUser = null;
+  //   })
+  $scope.logout = () => {
+    Auth.logout()
+    .then(res => {
+      $state.go('home');
+    })
+  }
+
 
   $(document).ready(function () {
 
@@ -25,10 +137,9 @@ app.controller('mainCtrl', function($scope, mySocket, $timeout) {
 
     $scope.result;
 
-    //check users answer and update users score
-    $("#checkMove").click(function (e) {
 
-      e.preventDefault();
+    //check users answer and update users score
+    $("#checkMove").click(function () {
 
       var userAnswer = board.fen();
 
