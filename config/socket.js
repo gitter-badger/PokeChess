@@ -104,6 +104,7 @@ module.exports = function (server) {
          * A player makes a new move => broadcast that move to the opponent
          */
         socket.on('new-move', function(data) {
+            console.log('new move data:', data)
             socket.broadcast.to(data.token).emit('new-move', data);
         });
 

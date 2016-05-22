@@ -27,7 +27,19 @@ router.get('/', function(req, res) {
        });
     });
 });
-
+// router.get('/puzzles', function(req, res) {
+//   mongoose.model('Puzzle').find({}, function(err, puzzles) {
+//     var randomPuzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
+//     var token = req.params.token;
+//     res.render('partials/puzzles', {
+//       title: 'Play a Puzzle',
+//       puzzle: randomPuzzle,
+//       token: token,
+//       user: req.user
+//     })
+//
+// })
+// }
 router.get('/game/:token/:side', function(req, res) {
     var token = req.params.token;
     var side = req.params.side;
