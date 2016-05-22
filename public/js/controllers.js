@@ -53,7 +53,7 @@ app.controller('authFormCtrl', function($scope, $state, Auth) {
           return Auth.login($scope.user);
         })
         .then(res => {
-          $state.go('home');
+          $state.go('chess');
         })
         .catch(res => {
           alert(`registration error: ${res.data.error}`);
@@ -64,7 +64,7 @@ app.controller('authFormCtrl', function($scope, $state, Auth) {
       console.log($scope.user)
       Auth.login($scope.user)
       .then(res => {
-        $state.go('home');
+        $state.go('chess');
       })
       .catch(res => {
         alert(`login error: ${res.data.error}`);

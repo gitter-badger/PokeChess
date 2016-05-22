@@ -44,6 +44,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   })
 
+  .state('chess', {
+    url: '/chess',
+    templateUrl: '/html/chess.html',
+    controller: 'chessCtrl',
+    resolve: {
+      profile: function(Auth) {
+        return Auth.getProfile();
+      }
+    }
+  })
+
 
   $urlRouterProvider.otherwise('/');
 })

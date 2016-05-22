@@ -54,7 +54,9 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
         <ul class="nav navbar-nav">
-        <li class="active"><a ui-sref='home'>Home</a></li>
+
+          <li ng-if="!currentUser" class="active"><a ui-sref='home'>Home</a></li>
+          <li ng-if="currentUser" class="active"><a ui-sref='chess'>Home</a></li>
 
           <li><a ng-hide="currentUser" ui-sref='login'>Login</a></li>
           <li><a ng-hide="currentUser" ui-sref='register'>Register</a></li>
@@ -84,51 +86,6 @@
 
     <ui-view></ui-view>
 
-
-    <h1>Chess Duel!</h1>
-    <hr>
-
-
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        <h2 class="panel-title">Players logged on: {{player}}</h2>
-        <h3>{{waitText}}</h3>
-
-        <div ng-if='player==2'>
-          <button class='btn btn-warning btn-block' ng-click='startTimer(); start=true'>Begin Timer</button>
-          <hr>
-          <h1 ng-if='start' class="panel-title text-center">{{question.num1}} * {{question.num2}} = __</h1>
-        </div>
-
-
-      </div>
-      <div class="panel-body">
-        <form ng-submit='checkAnswer(userAns)'>
-          Your Answer: <input ng-model='userAns' type="text">
-          <button type="submit" class='btn btn-success'>Submit</button>
-        </form>
-      </div>
-    </div>
-
-
-    <div class='jumbotron'>
-      <h3>Your Answer: {{userAns}} </h3>
-      <h3>Correct Answer: {{correctAns}}</h3>
-      <h3>Your Score: {{userScore}}</h3>
-    </div>
-
-    <hr>
-
-    <nywton-chessboard
-    board="boardC"
-    data-nywton-chessboard-autoresize
-    data-position="'start'"
-    data-draggable="true">
-  </nywton-chessboard>
-
-  <div id="board33" style="width: 400px"></div>
-  <button id="getMove">Click me!</button>
-
-</div>
+  </div>
 </body>
 </html>
