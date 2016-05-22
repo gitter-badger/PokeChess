@@ -23,6 +23,10 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
+    color: #F6DD47;
+}
+a {
+  color: #F6DD47;
 }
 
 .content {
@@ -114,11 +118,13 @@ body {
 	background-color: #3368B1;
 	background-image: url("http://i.imgur.com/n0WLCWr.png");
 	background-size: cover;
+  color: #F6DD47
 }
 
-.navbar {
+.navbar-default {
 	background-color: #ff3333;
 	border:none;
+  color: #F6DD47;
 }
 
 
@@ -171,4 +177,8 @@ body {
 
 #gameBoard {
     width: 400px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #ff3333;
+    background-color: #F6DD47;
 }

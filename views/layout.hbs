@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Mahmoud Ben Hassine">
+    <meta name="author" content="the Poke Chess Team">
     <link rel='stylesheet' href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel='stylesheet' href="/bower_components/fontawesome/css/font-awesome.min.css" />
     <link rel='stylesheet' href="/bower_components/chessboardjs/css/chessboard.min.css" />
@@ -17,9 +17,10 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
     <div class="header">
-        <ul class="nav nav-pills pull-right">
+
+        <ul class="nav navbar-default nav-pills pull-right">
             <li class="{{#if isHomePage}} active {{/if}}"><a href="/" title="Go to home page"><i class="fa fa-home"></i> Home</a></li>
             <li class="{{#if isPlayPage}} active {{/if}}"><a href="/play" title="Create a new game"><i class="fa fa-gamepad"></i> Play</a></li>
             <li class="{{#if isTvPage}} active {{/if}}"><a href="/tv" title="Watch live games"><i class="fa fa-eye"></i> Tv</a></li>
@@ -32,7 +33,8 @@
             {{/if}}
 
         </ul>
-        <h3><i class="fa fa-group"></i> Chess Hub</h3>
+
+        <a><i class="fa fa-qq fa-lg"></i> PokeChess Hub</a>
     </div>
 
     <div class="content">
@@ -40,8 +42,8 @@
     </div>
 
     <div class="footer">
-        <p>&copy; ChessHub 2014, <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by
-            <a target="_blank" href="http://www.mahmoud-benhassine.fr">Mahmoud Ben Hassine</a></p>
+        <p>&copy; PokeChess 2016, <i class="fa fa-trash"></i> with <i class="fa fa-heart"></i> by
+            <a target="_blank" href="www.reddit.com">thePokeChess<strong>Team<strong></a></p>
         <p><a href="/monitor"><i class="fa fa-dashboard"></i> service status</a></p>
     </div>
 
