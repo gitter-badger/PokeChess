@@ -2,26 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Turn Based Game!</title>
+  <title>pokéChess</title>
 
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/bower_components/bootswatch-dist/css/bootstrap.min.css">
+  <!--   <link rel="stylesheet" href="/bower_components/bootswatch-dist/css/bootstrap.min.css"> -->
   <link rel="styleseet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="css/style.css">
+  <!--Google Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet' type='text/css'>
   <!-- angular -->
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
   <!-- Bootstrap scripts and jquery script (used by bootstrap) -->
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/bower_components/bootswatch-dist/js/bootstrap.min.js"></script>
+  <!--   <script src="/bower_components/bootswatch-dist/js/bootstrap.min.js"></script> -->
   <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
   <!-- socket io client and angular-socket-io-->
   <script src="/bower_components/socket.io-client/socket.io.js"></script>
   <script src="/bower_components/angular-socket-io/socket.js"></script>
-
-  <!-- controller and services -->
+  <!-- controller and service -->
   <script src="/js/controllers.js"></script>
   <script src="/js/services.js"></script>
   <script src="/js/module.js"></script>
@@ -30,10 +29,11 @@
   <link rel="stylesheet" href="/bower_components/chessboard.js/src/css/chessboard.css"/>
   <script src="/bower_components/chessboard.js/dist/js/chessboard.js"></script>
   <script src="/bower_components/angular-chessboard/dist/angular-chessboard.min.js"></script>
-
   <!-- chessboardjs-0.3.0 -->
   <link rel="stylesheet" type="text/css" href="/chessboardjs-0.3.0/css/chessboard-0.3.0.css">
   <script type="text/javascript" src="/chessboardjs-0.3.0/js/chessboard-0.3.0.js"></script>
+  <!-- puzzle.js -->
+  <script type="text/javascript" src="/puzzles.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,10 +49,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Welcome {{currentUser.username}}!</a>
+        <!-- <a class="navbar-brand" href="#">Welcome {{currentUser.username}}!</a> -->
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <div class="navbar-header nav-text">
+          <img class="pikachu" alt="logo" src="pikachu.png">
+          pokéChess
+        </div>
+
+
         <ul class="nav navbar-nav">
 
           <li ng-if="!currentUser" class="active"><a ui-sref='home'>Home</a></li>
@@ -65,27 +71,55 @@
           <li><a ng-show="currentUser" ng-click='logout()'>Logout</a></li>
 
         </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+
         <ul class="nav navbar-nav navbar-right">
-          <li class="navbar-brand" href="#">Gotta Catch Them All!</li>
+          <li class="navbar-brand" href="#">Welcome {{currentUser.username}}!</li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <hr>
-  <hr>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header nav-text">
+        <img class="pikachu" alt="logo" src="pikachu.png">
+        pokéChess
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+
+          <li ng-if="!currentUser" class="active"><a ui-sref='home'>Home</a></li>
+          <li ng-if="currentUser" class="active"><a ui-sref='chess'>Home</a></li>
+
+          <li><a ng-hide="currentUser" ui-sref='login'>Login</a></li>
+          <li><a ng-hide="currentUser" ui-sref='register'>Register</a></li>
+
+          <li><a ng-show="currentUser" ui-sref='profile'>Profile</a></li>
+          <li><a ng-show="currentUser" ng-click='logout()'>Logout</a></li>
+
+        </ul>
 
 
-  <div class="container">
+      </div>
+    </nav>
 
-    <ui-view></ui-view>
 
-  </div>
-</body>
-</html>
+
+
+
+
+
+
+
+
+    <br>
+    <br>
+
+
+    <div class="container">
+
+      <ui-view></ui-view>
+
+    </div>
+  </body>
+  </html>
