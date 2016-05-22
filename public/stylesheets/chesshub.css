@@ -103,3 +103,17 @@ body {
 .table td, th {
     text-align: center;
 }
+body {
+	background-color: #3368B1;
+	background-image: url("http://i.imgur.com/n0WLCWr.png");
+	background-size: cover;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #FF1919;
+}
+.nav-pills>li>a {
+    border-radius: 4px;
+    background-color: yellow;
+    color: crimson;
+}
