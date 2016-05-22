@@ -224,7 +224,17 @@ $( document ).ready(function() {
         // for castling, en passant, pawn promotion
         var onSnapEnd = function() {
             board.position(game.fen());
-        };
+            if (board.ifCheck) {
+              //handle check
+              $('#gameWarn').html('Check!');
+              $('#gameWarnPopup').modal({
+                  keyboard: false,
+                  backdrop: 'static'
+              });
+              clearInterval(timer_interval);
+          }
+            }
+
 
         /*
          * Initialize a new board
@@ -261,7 +271,16 @@ $( document ).ready(function() {
                 backdrop: 'static'
             });
         });
-
+        /*
+         * To annoyingly annonce PokeChess!
+         */
+        socket.on('check', function () {
+            $('#gameWarn').html(url);
+            $('#gameWarnPopup').modal({ // show modal popup to wait for opponent
+                keyboard: false,
+                backdrop: 'static'
+            });
+        });
         /*
          * A second player has joined the game => the game can start
          */
@@ -451,4 +470,3 @@ $( document ).ready(function() {
         });
     }
 });
-
